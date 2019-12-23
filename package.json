@@ -1,0 +1,19 @@
+{
+  "name": "hubx",
+  "version": "1.0.0",
+  "description": "Hubx is a observer pattern adapted for react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PMoneda/hubx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PMoneda/hubx/issues"
+  },
+  "homepage": "https://github.com/PMoneda/hubx#readme"
+}
