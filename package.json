@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/PMoneda/hubx.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Philippe Moneda",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PMoneda/hubx/issues"
   },
-  "homepage": "https://github.com/PMoneda/hubx#readme"
+  "homepage": "https://github.com/PMoneda/hubx#readme",
+  "dependencies": {   
+    "react": "^16.12.0"
+  }
 }
