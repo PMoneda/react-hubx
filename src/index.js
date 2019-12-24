@@ -91,16 +91,26 @@ export class Hubx {
     }
     this.buffer[event].pop();
     this.buffer[event].push(message);
+    var promises = []
     this.observers[event].forEach(observer => {
-      setTimeout(function() {
-        if (typeof observer === "function") {
-          observer(message);
-        }
-      }, 1);
+      promises.push(new Promise((res,rej)=>{
+        setTimeout(function() {
+          if (typeof observer === "function") {
+            try{
+              observer(message);
+              res();
+            }catch(e){
+              rej(observer);
+            }            
+          }
+        }, 1);
+      }))
     });
+    return Promise.all(promises);
   }
 
   replay(event, rollback) {
+    console.warn("untested, not production ready")
     if (this.buffer[event]) {
       const last = this.buffer.length - 1;
       for (let i = last - rollback; i <= last; i++) {
