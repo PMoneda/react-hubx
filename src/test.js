@@ -1,4 +1,4 @@
-import {Hubx} from './'
+import {Hubx} from '.'
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import {Menu} from "./components"
