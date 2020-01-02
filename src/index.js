@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 // Reference: https://en.wikipedia.org/wiki/Publish-subscribe_pattern;
 // Reference: https://en.wikipedia.org/wiki/Mediator_pattern;
-export class Hubx {
+export default class Hubx {
   constructor() {
     this.observers = {};
     this.buffer = {};

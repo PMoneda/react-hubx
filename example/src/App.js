@@ -1,37 +1,71 @@
 import React, { Component } from 'react'
 
-import {withHubx} from 'hubx'
+import Hubx from 'hubx'
+import { withHubx } from 'hubx'
 
-class App extends Component {
-  
+
+class User extends Component {
   constructor(props){
     super(props)
-    
-    this.onClick = this.onClick.bind(this);
-    this.updateState = this.updateState.bind(this);
-    this.props.attach("my-topic",this.updateState)
+    this.state = {
+      users:["Suzanne Weeks","Sullivan Sanford"]
+    }
+    this.selectName = this.selectName.bind(this);
   }
 
-  updateState(number){
-    this.setState(s => {
-      s.number = number;
-      return s;
-    });
+  selectName(name){
+    this.props.notify("select-user-event",name)
   }
 
-  onClick(){
-    this.props.notify("my-topic",Math.random());
-  }
-  
-  render () {
+  render(){
     return (
       <div>
-        {this.state.number}
-        <button>Generate</button>
+        {this.state.users.map((u,i)=><button onClick={()=>this.selectName(u)} key={i}>{u}</button>)}
       </div>
     )
   }
 }
 
 
-export default  withHubx(App);
+class UserProfile extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      user:""
+    }
+    this.receiveUser = this.receiveUser.bind(this);
+    this.props.attach("select-user-event",this.receiveUser)
+  }
+
+  receiveUser(user){
+    this.setState({user:user})
+  }
+
+  render(){
+    return (
+      <div>
+        Name: {this.state.user}
+      </div>
+    )
+  }
+}
+
+const UserX = withHubx(User);
+const UserProfileX = withHubx(UserProfile);
+
+
+
+
+export default class App extends Component {
+  render () {
+    return (
+      <div>
+        <div>
+          <UserX/>
+          <br/>
+          <UserProfileX/>
+        </div>
+      </div>
+    )
+  }
+}
