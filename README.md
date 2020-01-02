@@ -2,7 +2,7 @@
 
 > Pubsub library to react
 
-[![NPM](https://img.shields.io/npm/v/hubx.svg)](https://www.npmjs.com/package/hubx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-hubx.svg)](https://www.npmjs.com/package/hubx) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
