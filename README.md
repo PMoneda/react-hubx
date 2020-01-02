@@ -1,4 +1,4 @@
-# hubx
+# react-hubx
 
 > Pubsub library to react
 
