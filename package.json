@@ -1,5 +1,5 @@
 {
-  "name": "hubx",
+  "name": "react-hubx",
   "version": "1.0.0",
   "description": "hubx is a pub sub pattern and mediator pattern that works with react",
   "author": "PMoneda",

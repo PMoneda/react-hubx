@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save hubx
+npm install --save react-hubx
 ```
 
 ## Usage
