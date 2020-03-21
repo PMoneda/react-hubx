@@ -86,7 +86,9 @@ export default class Hubx {
   }
 
   notify(event, message) {
-
+    if(!this.buffer[event]){
+      this.buffer[event] = [];
+    }
     this.buffer[event].pop();
     this.buffer[event].push(message);
     if (!this.observers[event]) {
