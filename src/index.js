@@ -86,11 +86,12 @@ export default class Hubx {
   }
 
   notify(event, message) {
+
+    this.buffer[event].pop();
+    this.buffer[event].push(message);
     if (!this.observers[event]) {
       return;
     }
-    this.buffer[event].pop();
-    this.buffer[event].push(message);
     var promises = []
     this.observers[event].forEach(observer => {
       promises.push(new Promise((res,rej)=>{
@@ -101,7 +102,7 @@ export default class Hubx {
               res();
             }catch(e){
               rej(observer);
-            }            
+            }
           }
         }, 1);
       }))
@@ -140,6 +141,7 @@ export function withHubx(WrappedComponent) {
       window.Hubx.attach(event, subscriber, withInitialValue);
     }
 
+
     detach(event, subscriber) {
       window.Hubx.detach(event, subscriber);
     }
@@ -164,7 +166,7 @@ export function withHubx(WrappedComponent) {
         <WrappedComponent
           {...this.props}
           attach={this.attach}
-          notify={this.notify}         
+          notify={this.notify}
           request={this.request}
         />
       );
