@@ -1,6 +1,6 @@
 {
   "name": "react-hubx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "hubx is a pub sub pattern and mediator pattern that works with react",
   "author": "PMoneda",
   "license": "MIT",

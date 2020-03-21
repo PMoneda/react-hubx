@@ -21,6 +21,8 @@ export default class Hubx {
   attach(event, observer, withLastValue) {
     if (!this.observers[event]) {
       this.observers[event] = [];
+    }
+    if (!this.buffer[event]) {
       this.buffer[event] = [];
     }
 
